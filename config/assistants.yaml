@@ -1,0 +1,41 @@
+version: 1
+product: eva-ai-office
+entrypoints:
+  - telegram
+  - web
+chief:
+  id: chief
+  name: Chief of Staff
+  session_key: eva-chief
+  responsibilities:
+    - route user requests
+    - monitor assistant progress
+    - aggregate results
+    - control notification noise
+    - enforce approvals
+assistants:
+  - id: mail
+    name: Mail Chief
+    session_key: eva-mail
+    role: inbox_assistant
+    channel: branch
+  - id: builder
+    name: Builder
+    session_key: eva-builder
+    role: product_engineering
+    channel: branch
+  - id: daykeeper
+    name: Daykeeper
+    session_key: eva-daykeeper
+    role: schedule_assistant
+    channel: branch
+  - id: signal
+    name: Signal
+    session_key: eva-signal
+    role: market_analyst
+    channel: branch
+  - id: voice
+    name: Voice
+    session_key: eva-voice
+    role: social_media_assistant
+    channel: branch

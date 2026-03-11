@@ -1,0 +1,27 @@
+web_workspace:
+  sections:
+    - overview
+    - assistants
+    - approvals
+    - timeline
+
+  assistant_pages:
+    - /assistants/mail
+    - /assistants/builder
+    - /assistants/daykeeper
+    - /assistants/signal
+    - /assistants/voice
+
+  layout:
+    left_sidebar:
+      - assistant list
+      - status pills
+      - unread counts
+    center_panel:
+      - active branch conversation
+      - task progress
+      - outputs
+    right_panel:
+      - approval queue
+      - task details
+      - risk notes

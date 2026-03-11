@@ -1,0 +1,40 @@
+telegram:
+  bot_shape: single-chief-bot
+  principles:
+    - one main conversation only
+    - specialists should not spam the user directly
+    - approvals happen in Telegram when possible
+    - details can open in web workspace
+
+  main_commands:
+    - /today
+    - /mail
+    - /builder
+    - /calendar
+    - /signal
+    - /voice
+    - /approvals
+    - /workspace
+
+  primary_buttons:
+    - 邮箱分支
+    - Builder 分支
+    - 日程分支
+    - 市场分支
+    - 社媒分支
+    - 审批队列
+    - 打开工作台
+
+  notification_rules:
+    immediate:
+      - urgent email
+      - meeting cancelled or rescheduled
+      - NDA or DocuSign
+      - investor / partner signal
+      - critical builder completion
+      - anything requiring approval
+    digest_only:
+      - routine market updates
+      - low-priority social interactions
+      - routine logs
+      - non-urgent inbox noise

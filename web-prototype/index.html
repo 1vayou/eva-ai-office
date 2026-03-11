@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eva AI Office</title>
+    <style>
+      body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff9f4;color:#1f2937}
+      .app{display:grid;grid-template-columns:240px 1fr 320px;min-height:100vh}
+      .side,.right{background:#fff;border-right:1px solid #f2dfcf;padding:20px}.right{border-right:none;border-left:1px solid #f2dfcf}
+      .main{padding:24px}
+      .card{background:#fff;border:1px solid #f2dfcf;border-radius:20px;padding:18px;box-shadow:0 12px 32px rgba(249,115,22,.08);margin-bottom:16px}
+      .assistant{padding:12px 14px;border-radius:14px;margin-bottom:8px;background:#fff7ef;border:1px solid #ffe0c7}
+      .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#fff1e8;color:#f97316;font-size:12px;font-weight:700}
+      .muted{color:#6b7280}.title{font-weight:700;font-size:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+      button{padding:10px 14px;border-radius:12px;border:none;background:#f97316;color:white;font-weight:700}
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="side">
+        <div class="title">Eva AI Office</div>
+        <p class="muted">Telegram + Web founder office prototype</p>
+        <div class="assistant">Chief of Staff</div>
+        <div class="assistant">Mail Chief</div>
+        <div class="assistant">Builder</div>
+        <div class="assistant">Daykeeper</div>
+        <div class="assistant">Signal</div>
+        <div class="assistant">Voice</div>
+      </aside>
+      <main class="main">
+        <div class="card">
+          <div class="title">Chief of Staff</div>
+          <p class="muted">Single front door in Telegram. Monitors specialists and summarizes what matters.</p>
+          <span class="badge">2 pending approvals</span>
+        </div>
+        <div class="grid">
+          <div class="card"><strong>Mail Chief</strong><p class="muted">Inbox triage, reply drafts, invite tracking.</p></div>
+          <div class="card"><strong>Builder</strong><p class="muted">Product, engineering, QA, deploys.</p></div>
+          <div class="card"><strong>Daykeeper</strong><p class="muted">Calendar truth, reschedules, conflicts.</p></div>
+          <div class="card"><strong>Signal</strong><p class="muted">Market and opportunity intelligence.</p></div>
+        </div>
+      </main>
+      <aside class="right">
+        <div class="title">Approval Queue</div>
+        <p class="muted">High-risk actions requiring user confirmation.</p>
+        <div class="card"><strong>Accept Friday meeting</strong><p class="muted">Daykeeper proposes accepting the updated invite.</p><button>Approve</button></div>
+        <div class="card"><strong>Send drafted email</strong><p class="muted">Mail Chief prepared a reply draft for a high-priority message.</p><button>Approve</button></div>
+      </aside>
+    </div>
+  </body>
+</html>
