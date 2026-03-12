@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssistantStatus",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "status": { "type": "string", "enum": ["idle", "queued", "running", "waiting_input", "waiting_approval", "blocked", "done", "escalated"] },
+    "currentTask": { "type": ["string", "null"] },
+    "progressSummary": { "type": ["string", "null"] },
+    "riskLevel": { "type": "string", "enum": ["low", "medium", "high"] },
+    "lastUpdateAt": { "type": "number" },
+    "pendingApprovals": { "type": "integer", "minimum": 0 },
+    "blockedReason": { "type": ["string", "null"] }
+  },
+  "required": ["id", "name", "status", "riskLevel", "lastUpdateAt", "pendingApprovals"]
+}

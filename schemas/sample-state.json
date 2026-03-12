@@ -1,0 +1,93 @@
+{
+  "generatedAt": 1741730400000,
+  "assistants": [
+    {
+      "id": "chief",
+      "name": "Chief of Staff",
+      "status": "running",
+      "currentTask": "Coordinate daily office summary",
+      "progressSummary": "Aggregating inbox, schedule, and builder updates for Telegram delivery.",
+      "riskLevel": "low",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 2,
+      "blockedReason": null
+    },
+    {
+      "id": "mail",
+      "name": "Mail Chief",
+      "status": "running",
+      "currentTask": "Scan important inbox items",
+      "progressSummary": "Reviewing unread important mail and extracting action items.",
+      "riskLevel": "low",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 1,
+      "blockedReason": null
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "status": "done",
+      "currentTask": "Prototype scaffold bootstrap",
+      "progressSummary": "Committed first repo scaffold and pushed to GitHub.",
+      "riskLevel": "low",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 0,
+      "blockedReason": null
+    },
+    {
+      "id": "daykeeper",
+      "name": "Daykeeper",
+      "status": "waiting_approval",
+      "currentTask": "Confirm Friday meeting state",
+      "progressSummary": "New invite detected, old invite canceled, waiting for accept/decline decision.",
+      "riskLevel": "medium",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 1,
+      "blockedReason": null
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "status": "idle",
+      "currentTask": null,
+      "progressSummary": null,
+      "riskLevel": "low",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 0,
+      "blockedReason": null
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "status": "queued",
+      "currentTask": "Await social account connection",
+      "progressSummary": "Ready to start once social platform access policy is configured.",
+      "riskLevel": "high",
+      "lastUpdateAt": 1741730400000,
+      "pendingApprovals": 0,
+      "blockedReason": null
+    }
+  ],
+  "approvals": [
+    {
+      "id": "approval-mail-1",
+      "assistantId": "mail",
+      "assistantName": "Mail Chief",
+      "actionType": "send_email",
+      "summary": "Send a drafted response to a high-priority inbound email.",
+      "riskLevel": "medium",
+      "status": "pending",
+      "createdAt": 1741730400000
+    },
+    {
+      "id": "approval-daykeeper-1",
+      "assistantId": "daykeeper",
+      "assistantName": "Daykeeper",
+      "actionType": "accept_meeting",
+      "summary": "Accept the updated Friday meeting invite.",
+      "riskLevel": "medium",
+      "status": "pending",
+      "createdAt": 1741730400000
+    }
+  ]
+}

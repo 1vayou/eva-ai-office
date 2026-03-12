@@ -3,49 +3,163 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eva AI Office</title>
+    <title>Eva AI Office Workspace</title>
     <style>
-      body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff9f4;color:#1f2937}
-      .app{display:grid;grid-template-columns:240px 1fr 320px;min-height:100vh}
-      .side,.right{background:#fff;border-right:1px solid #f2dfcf;padding:20px}.right{border-right:none;border-left:1px solid #f2dfcf}
-      .main{padding:24px}
-      .card{background:#fff;border:1px solid #f2dfcf;border-radius:20px;padding:18px;box-shadow:0 12px 32px rgba(249,115,22,.08);margin-bottom:16px}
-      .assistant{padding:12px 14px;border-radius:14px;margin-bottom:8px;background:#fff7ef;border:1px solid #ffe0c7}
-      .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#fff1e8;color:#f97316;font-size:12px;font-weight:700}
-      .muted{color:#6b7280}.title{font-weight:700;font-size:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-      button{padding:10px 14px;border-radius:12px;border:none;background:#f97316;color:white;font-weight:700}
+      :root {
+        --bg: #fffaf5;
+        --panel: #ffffff;
+        --border: #f3e2d1;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --orange: #f97316;
+        --orange-soft: #fff1e8;
+        --emerald: #10b981;
+        --amber: #f59e0b;
+        --gray: #d1d5db;
+        --shadow: 0 14px 40px rgba(249,115,22,.08);
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: linear-gradient(180deg,#fffdf9 0%, #fff7ef 100%); color: var(--text); }
+      .app { display: grid; grid-template-columns: 260px 1fr 340px; min-height: 100vh; }
+      .sidebar, .detail { background: rgba(255,255,255,.82); backdrop-filter: blur(12px); padding: 20px; }
+      .sidebar { border-right: 1px solid var(--border); }
+      .detail { border-left: 1px solid var(--border); }
+      .brand { font-weight: 800; font-size: 20px; }
+      .small { font-size: 12px; }
+      .muted { color: var(--muted); }
+      .nav-item { padding: 12px 14px; border: 1px solid transparent; border-radius: 14px; margin-bottom: 8px; background: transparent; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+      .nav-item.active { background: var(--orange-soft); border-color: #ffd8bf; }
+      .name { display:flex; align-items:center; gap:10px; }
+      .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+      .running { background: var(--orange); }
+      .done { background: var(--emerald); }
+      .waiting { background: var(--amber); }
+      .idle { background: var(--gray); }
+      .queued { background: #fb923c; }
+      .count { min-width: 22px; height:22px; border-radius:999px; background:#fff; border:1px solid var(--border); font-size:12px; display:flex; align-items:center; justify-content:center; }
+      .main { padding: 28px; }
+      .hero, .card, .approval, .timeline-item { background: var(--panel); border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); }
+      .hero { padding: 24px; margin-bottom: 18px; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+      .card { padding: 18px; }
+      .title-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .pill { padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--orange-soft); color: var(--orange); }
+      .log { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+      .approval { padding: 16px; margin-bottom: 12px; }
+      .btns { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+      button { border: none; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+      .primary { background: var(--orange); color: white; }
+      .ghost { background: #fff; border: 1px solid var(--border); color: var(--text); }
+      .tabs { display:flex; gap:10px; margin:16px 0 20px; flex-wrap: wrap; }
+      .tab { padding:10px 14px; border-radius:999px; background:#fff; border:1px solid var(--border); font-size:13px; }
+      .tab.active { background: var(--orange-soft); color: var(--orange); border-color:#ffd8bf; }
+      .timeline { margin-top: 18px; display:grid; gap:12px; }
+      .timeline-item { padding:14px 16px; }
     </style>
   </head>
   <body>
     <div class="app">
-      <aside class="side">
-        <div class="title">Eva AI Office</div>
-        <p class="muted">Telegram + Web founder office prototype</p>
-        <div class="assistant">Chief of Staff</div>
-        <div class="assistant">Mail Chief</div>
-        <div class="assistant">Builder</div>
-        <div class="assistant">Daykeeper</div>
-        <div class="assistant">Signal</div>
-        <div class="assistant">Voice</div>
+      <aside class="sidebar">
+        <div class="brand">Eva AI Office</div>
+        <p class="muted small">Telegram main chat + web branch workspace</p>
+
+        <div class="nav-item active">
+          <div class="name"><span class="dot running"></span><span>Chief of Staff</span></div>
+          <span class="count">2</span>
+        </div>
+        <div class="nav-item">
+          <div class="name"><span class="dot running"></span><span>Mail Chief</span></div>
+          <span class="count">1</span>
+        </div>
+        <div class="nav-item">
+          <div class="name"><span class="dot done"></span><span>Builder</span></div>
+          <span class="count">0</span>
+        </div>
+        <div class="nav-item">
+          <div class="name"><span class="dot waiting"></span><span>Daykeeper</span></div>
+          <span class="count">1</span>
+        </div>
+        <div class="nav-item">
+          <div class="name"><span class="dot idle"></span><span>Signal</span></div>
+          <span class="count">0</span>
+        </div>
+        <div class="nav-item">
+          <div class="name"><span class="dot queued"></span><span>Voice</span></div>
+          <span class="count">0</span>
+        </div>
       </aside>
+
       <main class="main">
-        <div class="card">
-          <div class="title">Chief of Staff</div>
-          <p class="muted">Single front door in Telegram. Monitors specialists and summarizes what matters.</p>
-          <span class="badge">2 pending approvals</span>
-        </div>
-        <div class="grid">
-          <div class="card"><strong>Mail Chief</strong><p class="muted">Inbox triage, reply drafts, invite tracking.</p></div>
-          <div class="card"><strong>Builder</strong><p class="muted">Product, engineering, QA, deploys.</p></div>
-          <div class="card"><strong>Daykeeper</strong><p class="muted">Calendar truth, reschedules, conflicts.</p></div>
-          <div class="card"><strong>Signal</strong><p class="muted">Market and opportunity intelligence.</p></div>
-        </div>
+        <section class="hero">
+          <div class="title-row">
+            <div>
+              <div class="brand">Chief of Staff</div>
+              <div class="muted">One front door in Telegram. Monitors specialists and summarizes what matters.</div>
+            </div>
+            <div class="pill">2 pending approvals</div>
+          </div>
+          <div class="tabs">
+            <div class="tab active">Overview</div>
+            <div class="tab">Mail Branch</div>
+            <div class="tab">Builder Branch</div>
+            <div class="tab">Daykeeper Branch</div>
+            <div class="tab">Timeline</div>
+          </div>
+          <div class="log">
+            <strong>What matters now:</strong> Mail Chief is processing important inbox items, Builder finished the repo scaffold bootstrap, and Daykeeper is waiting for approval on the updated Friday meeting.
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="card">
+            <div class="title-row"><strong>Mail Chief</strong><span class="pill">running</span></div>
+            <div class="log">Scanning unread important mail, extracting deadlines, and preparing drafts.</div>
+          </div>
+          <div class="card">
+            <div class="title-row"><strong>Builder</strong><span class="pill">done</span></div>
+            <div class="log">Bootstrapped `eva-ai-office` repo and pushed the first scaffold to GitHub.</div>
+          </div>
+          <div class="card">
+            <div class="title-row"><strong>Daykeeper</strong><span class="pill">waiting approval</span></div>
+            <div class="log">Tracking the Helen meeting change chain. New invite exists; old invite canceled.</div>
+          </div>
+          <div class="card">
+            <div class="title-row"><strong>Voice</strong><span class="pill">queued</span></div>
+            <div class="log">Waiting on social account connection and response policy.</div>
+          </div>
+        </section>
+
+        <section class="timeline">
+          <div class="timeline-item"><strong>09:10</strong> · Mail Chief scanned important inbox items.</div>
+          <div class="timeline-item"><strong>09:24</strong> · Daykeeper detected invite cancel + reschedule chain.</div>
+          <div class="timeline-item"><strong>09:40</strong> · Builder committed repo scaffold.</div>
+          <div class="timeline-item"><strong>09:48</strong> · Chief prepared Telegram summary and approval queue.</div>
+        </section>
       </main>
-      <aside class="right">
-        <div class="title">Approval Queue</div>
-        <p class="muted">High-risk actions requiring user confirmation.</p>
-        <div class="card"><strong>Accept Friday meeting</strong><p class="muted">Daykeeper proposes accepting the updated invite.</p><button>Approve</button></div>
-        <div class="card"><strong>Send drafted email</strong><p class="muted">Mail Chief prepared a reply draft for a high-priority message.</p><button>Approve</button></div>
+
+      <aside class="detail">
+        <div class="brand">Approval Queue</div>
+        <p class="muted small">High-risk or external actions wait here.</p>
+
+        <div class="approval">
+          <strong>Mail Chief · send_email</strong>
+          <div class="log">Send drafted reply to a high-priority inbound message.</div>
+          <div class="btns">
+            <button class="primary">Approve</button>
+            <button class="ghost">Reject</button>
+            <button class="ghost">View detail</button>
+          </div>
+        </div>
+
+        <div class="approval">
+          <strong>Daykeeper · accept_meeting</strong>
+          <div class="log">Accept the updated Friday meeting invite.</div>
+          <div class="btns">
+            <button class="primary">Approve</button>
+            <button class="ghost">Reject</button>
+            <button class="ghost">View detail</button>
+          </div>
+        </div>
       </aside>
     </div>
   </body>
