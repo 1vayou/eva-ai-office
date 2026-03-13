@@ -1,6 +1,16 @@
+"use client";
+
 import type { ApprovalItem } from "@/lib/types";
 
 export function ApprovalCard({ approval }: { approval: ApprovalItem }) {
+  const handleApprove = () => {
+    alert(`✅ Approved: ${approval.actionType} by ${approval.assistantName}`);
+  };
+
+  const handleReject = () => {
+    alert(`❌ Rejected: ${approval.actionType} by ${approval.assistantName}`);
+  };
+
   return (
     <div
       style={{
@@ -17,8 +27,34 @@ export function ApprovalCard({ approval }: { approval: ApprovalItem }) {
         {approval.summary}
       </div>
       <div style={{ display: "flex", gap: 10, marginTop: 12, flexWrap: "wrap" }}>
-        <button style={{ border: "none", borderRadius: 12, padding: "10px 14px", fontWeight: 700, background: "#f97316", color: "white" }}>Approve</button>
-        <button style={{ borderRadius: 12, padding: "10px 14px", fontWeight: 700, background: "#fff", border: "1px solid #f3e2d1", color: "#1f2937" }}>Reject</button>
+        <button 
+          onClick={handleApprove}
+          style={{ 
+            border: "none", 
+            borderRadius: 12, 
+            padding: "10px 14px", 
+            fontWeight: 700, 
+            background: "#f97316", 
+            color: "white",
+            cursor: "pointer"
+          }}
+        >
+          Approve
+        </button>
+        <button 
+          onClick={handleReject}
+          style={{ 
+            borderRadius: 12, 
+            padding: "10px 14px", 
+            fontWeight: 700, 
+            background: "#fff", 
+            border: "1px solid #f3e2d1", 
+            color: "#1f2937",
+            cursor: "pointer"
+          }}
+        >
+          Reject
+        </button>
       </div>
     </div>
   );

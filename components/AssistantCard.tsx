@@ -1,17 +1,27 @@
+"use client";
+
+import Link from "next/link";
 import type { AssistantStatus } from "@/lib/types";
 import { getStatusTone } from "@/lib/workspace-data";
 
 export function AssistantCard({ assistant }: { assistant: AssistantStatus }) {
   const tone = getStatusTone(assistant.status);
+  const href = assistant.id === "chief" ? "/" : `/assistants/${assistant.id}`;
 
   return (
-    <div
+    <Link
+      href={href}
       style={{
+        display: "block",
         background: "#fff",
         border: "1px solid #f3e2d1",
         borderRadius: 20,
         padding: 18,
         boxShadow: "0 14px 40px rgba(249,115,22,.08)",
+        textDecoration: "none",
+        color: "inherit",
+        cursor: "pointer",
+        transition: "all 0.2s",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
@@ -33,6 +43,6 @@ export function AssistantCard({ assistant }: { assistant: AssistantStatus }) {
         <div><strong>Task:</strong> {assistant.currentTask ?? "—"}</div>
         <div><strong>Update:</strong> {assistant.progressSummary ?? "—"}</div>
       </div>
-    </div>
+    </Link>
   );
 }
