@@ -9,7 +9,7 @@
       "progressSummary": "Aggregating inbox, schedule, and builder updates for Telegram delivery.",
       "riskLevel": "low",
       "lastUpdateAt": 1741730400000,
-      "pendingApprovals": 2,
+      "pendingApprovals": 1,
       "blockedReason": null
     },
     {
@@ -20,7 +20,7 @@
       "progressSummary": "Reviewing unread important mail and extracting action items.",
       "riskLevel": "low",
       "lastUpdateAt": 1741730400000,
-      "pendingApprovals": 1,
+      "pendingApprovals": 0,
       "blockedReason": null
     },
     {
@@ -69,16 +69,6 @@
     }
   ],
   "approvals": [
-    {
-      "id": "approval-mail-1",
-      "assistantId": "mail",
-      "assistantName": "Mail Chief",
-      "actionType": "send_email",
-      "summary": "Send a drafted response to a high-priority inbound email.",
-      "riskLevel": "medium",
-      "status": "pending",
-      "createdAt": 1741730400000
-    },
     {
       "id": "approval-daykeeper-1",
       "assistantId": "daykeeper",
